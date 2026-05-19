@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
 import { products, type Product, type ProductStatus } from '../data/products';
 import { schedules } from '../data/schedule';
@@ -226,6 +227,16 @@ function ProductCard({ product, open, onToggle }: ProductCardProps) {
                   ))}
                 </ul>
               </div>
+            )}
+
+            {product.id === 'sjtu-wiki' && (
+              <Link to="/products/wiki/contrib" className="product-card__cta">
+                <span className="product-card__cta-label">// 参与即可获得积分</span>
+                <span className="product-card__cta-text">
+                  参与 SJTU Wiki 贡献，可获得"传承·交大"积分！
+                </span>
+                <span className="product-card__cta-arrow">进入贡献中心 →</span>
+              </Link>
             )}
 
             {product.images.length > 1 && (

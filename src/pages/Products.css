@@ -361,6 +361,66 @@
   line-height: 1.7;
 }
 
+/* ---- 特例 CTA（如 sjtu-wiki 卡片展开里指向 /products/wiki/contrib） ---- */
+.product-card__cta {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: color-mix(in srgb, var(--accent, var(--color-red)) 12%, transparent);
+  border: 1px solid var(--accent, var(--color-red));
+  color: var(--color-white);
+  text-decoration: none;
+  position: relative;
+  transition: background 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.product-card__cta:hover {
+  background: var(--accent, var(--color-red));
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px
+    color-mix(in srgb, var(--accent, var(--color-red)) 40%, transparent);
+}
+
+.product-card__cta-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--accent, var(--color-red));
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.product-card__cta:hover .product-card__cta-label {
+  color: var(--color-white);
+}
+
+.product-card__cta-text {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  min-width: 200px;
+}
+
+.product-card__cta-arrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  padding: 6px 12px;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+  transition: transform 0.2s ease;
+}
+
+.product-card__cta:hover .product-card__cta-arrow {
+  transform: translateX(2px);
+}
+
 .product-card__gallery {
   grid-column: 1 / -1;
   display: grid;
