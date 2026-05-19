@@ -24,6 +24,6 @@ export default defineConfig(({ mode }) => {
         },
       },
     },
-    base: '/new-home',
+    base: '/',
   };
 });
