@@ -1,0 +1,32 @@
+.geek-corner {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: clamp(280px, 50vw, 800px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8;
+  mix-blend-mode: screen;
+  animation: cornerFloat 8s ease-in-out infinite alternate;
+}
+
+.geek-corner img {
+  width: 100%;
+  height: auto;
+}
+
+@keyframes cornerFloat {
+  from {
+    transform: translate(20px, 120px) scale(1);
+  }
+  to {
+    transform: translate(-20px, 180px) scale(1.2);
+  }
+}
+
+@media (max-width: 720px) {
+  .geek-corner {
+    width: 60vw;
+    opacity: 0.55;
+  }
+}
