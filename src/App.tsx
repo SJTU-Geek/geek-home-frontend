@@ -6,6 +6,7 @@ import GeekCorner from './components/GeekCorner';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import News from './pages/News';
+import NewsArticle from './pages/NewsArticle';
 import About from './pages/About';
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/news" element={<News />} />
+          <Route path="/news/:slug" element={<NewsArticle />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<Home />} />
         </Routes>

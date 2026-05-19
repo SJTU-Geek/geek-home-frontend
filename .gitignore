@@ -6,6 +6,9 @@ dist/
 dist-ssr/
 build/
 
+# 由 scripts/build-articles.ts 生成
+src/generated/
+
 # ===== Vite / bundler caches =====
 .vite/
 .vite-temp/

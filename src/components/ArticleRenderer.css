@@ -1,0 +1,305 @@
+/* =========================
+   ARTICLE BODY · markdown typography
+   ========================= */
+
+.article-body {
+  color: var(--color-text-dim);
+  font-size: 16px;
+  line-height: 1.95;
+  word-break: break-word;
+}
+
+.article-body > * + * {
+  margin-top: 1.2em;
+}
+
+/* ---- 标题 ---- */
+.article-body h1,
+.article-body h2,
+.article-body h3,
+.article-body h4,
+.article-body h5,
+.article-body h6 {
+  color: var(--color-white);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+  scroll-margin-top: calc(var(--nav-h) + 16px);
+}
+
+.article-body h1 {
+  font-size: clamp(28px, 3.4vw, 36px);
+}
+.article-body h2 {
+  font-size: clamp(24px, 3vw, 30px);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-line);
+}
+.article-body h3 {
+  font-size: clamp(20px, 2.4vw, 24px);
+  position: relative;
+  padding-left: 14px;
+}
+.article-body h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  bottom: 0.42em;
+  width: 3px;
+  background: var(--color-red);
+  box-shadow: 0 0 8px var(--color-red);
+}
+.article-body h4 {
+  font-size: 18px;
+}
+
+/* ---- 段落 ---- */
+.article-body p {
+  /* margin-bottom 提供段落间距；margin-top 留 0 让上面元素（heading、list 等）
+     自己决定与正文的距离。比依赖通用兄弟规则更稳定，不会被更高特异性的
+     `.article-body p` 覆盖。 */
+  margin: 0 0 1.2em;
+}
+
+.article-body > :last-child {
+  margin-bottom: 0;
+}
+
+.article-body strong,
+.article-body b {
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.article-body em,
+.article-body i {
+  font-style: italic;
+  color: var(--color-text);
+}
+
+/* ---- 链接 ---- */
+.article-body a {
+  color: var(--color-red);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-red) 50%, transparent);
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.article-body a:hover {
+  color: var(--color-white);
+  background: var(--color-red);
+  border-bottom-color: var(--color-red);
+}
+
+/* ---- 列表 ---- */
+.article-body ul,
+.article-body ol {
+  margin: 0;
+  padding-left: 1.6em;
+}
+
+.article-body li + li {
+  margin-top: 0.4em;
+}
+
+.article-body ul li::marker {
+  color: var(--color-red);
+}
+
+.article-body ol li::marker {
+  color: var(--color-red);
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+/* ---- 引用 ---- */
+.article-body blockquote {
+  margin: 0;
+  padding: 14px 18px;
+  background: var(--color-bg-soft);
+  border-left: 3px solid var(--color-red);
+  color: var(--color-text-dim);
+  font-size: 15px;
+}
+
+.article-body blockquote > * + * {
+  margin-top: 0.6em;
+}
+
+/* ---- 行内代码 ---- */
+.article-body code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  padding: 1px 6px;
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-line);
+  color: var(--color-red);
+  border-radius: 2px;
+}
+
+/* ---- 代码块 ---- */
+.article-body pre {
+  margin: 0;
+  padding: 18px 20px;
+  background: #0d100e;
+  border: 1px solid var(--color-line);
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+.article-body pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--color-text);
+  font-size: inherit;
+}
+
+/* ---- 表格 ---- */
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  border: 1px solid var(--color-line);
+}
+
+.article-body th,
+.article-body td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.article-body th {
+  background: var(--color-bg-soft);
+  color: var(--color-white);
+  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+
+.article-body tr:last-child td {
+  border-bottom: none;
+}
+
+/* ---- 分割线 ---- */
+.article-body hr {
+  border: none;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-line) 0 8px,
+    transparent 8px 16px
+  );
+  margin: 2em 0;
+}
+
+/* ---- 图片 ---- */
+.article-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border: 1px solid var(--color-line);
+  background: var(--color-bg-soft);
+  border-radius: 2px;
+}
+
+/* 单图 / 单链接图自动居中 + 加点呼吸感 */
+.article-body p:has(> img:only-child),
+.article-body p:has(> a:only-child > img:only-child) {
+  text-align: center;
+}
+
+/* ---- 原文里手写的 <div style="display:flex"> 多图组 ---- */
+.article-body div[style*='display: flex'],
+.article-body div[style*='display:flex'] {
+  gap: 12px;
+  align-items: stretch;
+}
+
+.article-body div[style*='display: flex'] > div,
+.article-body div[style*='display:flex'] > div {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.article-body div[style*='display: flex'] img,
+.article-body div[style*='display:flex'] img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 720px) {
+  .article-body {
+    font-size: 15px;
+    line-height: 1.85;
+  }
+  .article-body div[style*='display: flex'],
+  .article-body div[style*='display:flex'] {
+    flex-direction: column;
+  }
+}
+
+/* ---- 居中诗化段（在 markdown 里用 <div class="article-centered">…</div>） ---- */
+.article-body .article-centered {
+  color: var(--color-text);
+  font-size: 17px;
+  line-height: 2.1;
+  letter-spacing: 0.06em;
+  padding: 28px 16px;
+  margin: 2.4em 0;
+  text-align: center;
+  border-top: 1px dashed var(--color-line);
+  border-bottom: 1px dashed var(--color-line);
+  position: relative;
+}
+
+.article-body .article-centered::before,
+.article-body .article-centered::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--color-red);
+}
+.article-body .article-centered::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+.article-body .article-centered::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
+
+.article-body .article-centered > p + p {
+  margin-top: 1.4em;
+}
+
+/* ---- 署名 / 撰稿摄影信息（在 markdown 里用 <div class="article-signature">…</div>） ---- */
+.article-body .article-signature {
+  text-align: right;
+  color: var(--color-text-mute);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  margin-top: 2.4em;
+  padding-top: 1em;
+  border-top: 1px dashed var(--color-line);
+}
+
+.article-body .article-signature p {
+  margin: 0;
+  line-height: 2;
+}

@@ -5,19 +5,27 @@
   "type": "module",
   "description": "上海交通大学学生信息技术协会（思源极客协会）官方网站",
   "scripts": {
+    "articles": "tsx scripts/build-articles.ts",
+    "predev": "pnpm articles",
     "dev": "vite",
+    "prebuild": "pnpm articles",
     "build": "tsc -b && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "qrcode.react": "^4.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
+    "@types/node": "^25.9.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
+    "gray-matter": "^4.0.3",
+    "marked": "^18.0.3",
+    "tsx": "^4.22.2",
     "typescript": "^5.6.3",
     "vite": "^5.4.10"
   }

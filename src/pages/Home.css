@@ -748,3 +748,226 @@
     transform: rotate(90deg);
   }
 }
+
+/* =========================
+   JOIN · 召集令
+   ========================= */
+.join {
+  position: relative;
+}
+
+.join__title {
+  margin-bottom: 24px;
+}
+
+.join__lead {
+  max-width: 820px;
+  margin: 0 0 56px;
+  font-size: 17px;
+  line-height: 1.95;
+  color: var(--color-text-dim);
+}
+
+.join__lead strong {
+  color: var(--color-red);
+  font-weight: 600;
+}
+
+.join__sub {
+  margin: 0 0 24px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.join__sub .accent {
+  color: var(--color-red);
+  margin-right: 8px;
+}
+
+/* ---- benefits ---- */
+.join__benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-bottom: 64px;
+  align-items: stretch;
+}
+
+.join-benefit {
+  position: relative;
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-line);
+  padding: 28px 24px 24px;
+  transition: transform 0.3s ease, border-color 0.3s ease,
+    background 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.join-benefit:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-red);
+  background: #262c28;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+.join-benefit__no {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-family: var(--font-mono);
+  font-size: 28px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.07);
+  transition: color 0.3s ease;
+}
+
+.join-benefit:hover .join-benefit__no {
+  color: rgba(201, 21, 30, 0.5);
+}
+
+.join-benefit__title {
+  margin: 0;
+  font-size: 18px;
+  color: var(--color-white);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.join-benefit__desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--color-text-dim);
+}
+
+/* ---- 联系卡 / QR ---- */
+.join__links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.join-link {
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-line);
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  transition: transform 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.join-link:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-red);
+  box-shadow: var(--shadow-glow-red), 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+
+.join-link__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.join-link__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-red);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.join-link__title {
+  margin: 0;
+  font-size: 18px;
+  color: var(--color-white);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.join-link__qr {
+  position: relative;
+  background: var(--color-white);
+  padding: 10px;
+  border: 1px solid var(--color-line);
+  line-height: 0;
+  /* 红色四角小切角，增强极客感 */
+  box-shadow:
+    inset 0 0 0 1px transparent,
+    0 0 0 1px transparent;
+}
+
+.join-link__qr::before,
+.join-link__qr::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--color-red);
+  pointer-events: none;
+}
+
+.join-link__qr::before {
+  top: -6px;
+  left: -6px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.join-link__qr::after {
+  bottom: -6px;
+  right: -6px;
+  border-left: none;
+  border-top: none;
+}
+
+.join-link:hover .join-link__qr {
+  box-shadow: 0 8px 22px rgba(201, 21, 30, 0.35);
+}
+
+.join-link__url {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding-top: 12px;
+  border-top: 1px dashed var(--color-line);
+  text-decoration: none;
+  color: inherit;
+}
+
+.join-link__url-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-mute);
+  letter-spacing: 0.04em;
+  word-break: break-all;
+  line-height: 1.4;
+}
+
+.join-link__cta {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--color-red);
+  padding: 6px 14px;
+  border: 1px solid var(--color-red);
+  background: rgba(201, 21, 30, 0.06);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.join-link__url:hover .join-link__cta {
+  background: var(--color-red);
+  color: var(--color-white);
+}

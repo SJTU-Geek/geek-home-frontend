@@ -120,8 +120,13 @@ svg {
 /* ------- 通用 section ------- */
 .section {
   position: relative;
-  padding: 24px 0;
+  padding: 16px 0;
   z-index: 1;
+}
+
+/* 首页内容更松、节奏更慢，section 之间给更大呼吸 */
+.home .section {
+  padding: 64px 0;
 }
 
 .section-eyebrow {

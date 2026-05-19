@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { QRCodeSVG } from 'qrcode.react';
 import HeroCanvas from '../components/HeroCanvas';
 import Typewriter from '../components/Typewriter';
 import Reveal from '../components/Reveal';
@@ -169,6 +170,49 @@ const projects = [
     tagline: '面向全体在校学生的系统化人工智能素养提升项目。',
     tags: ['AI', '素养教育', '讲座体系'],
     accent: '#6a4cc8',
+  },
+];
+
+const joinBenefits = [
+  {
+    title: '实战项目试炼场',
+    desc: '多部门联动项目，从开发运维到宣传策划，全方位提升专业技能与执行力。',
+  },
+  {
+    title: '素养提升计划',
+    desc: '资深学长学姐与专业教师全程指导，系统化素养培训助你快速进阶。',
+  },
+  {
+    title: '跨领域交流平台',
+    desc: '技术、设计、管理等领域同学汇聚，碰撞火花，协作共赢。',
+  },
+  {
+    title: '成果全校推广',
+    desc: '你的创意与项目，将有机会服务全校师生，成为智慧校园的核心力量。',
+  },
+];
+
+const joinLinks = [
+  {
+    label: 'QQ Group',
+    title: '协会 QQ 交流群',
+    url: 'https://qm.qq.com/q/Db9Mf788zo',
+    urlText: 'qm.qq.com/q/Db9Mf788zo',
+    cta: '加入群聊',
+  },
+  {
+    label: 'Apply',
+    title: '招新报名问卷',
+    url: 'https://ssc.sjtu.edu.cn/f/fdd3762e',
+    urlText: 'ssc.sjtu.edu.cn/f/fdd3762e',
+    cta: '立即报名',
+  },
+  {
+    label: 'Feedback',
+    title: '意见反馈',
+    url: 'https://ssc.sjtu.edu.cn/f/4282a590',
+    urlText: 'ssc.sjtu.edu.cn/f/4282a590',
+    cta: '提建议',
   },
 ];
 
@@ -475,6 +519,87 @@ export default function Home() {
               查看全部项目 →
             </Link>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ============ 招新 / 召集令 ============ */}
+      <section className="section join">
+        <div className="container">
+          <Reveal>
+            <p className="section-eyebrow">// 加入我们 · Join us</p>
+            <h2 className="section-title join__title">
+              校园数智化先锋 · <span className="accent">召集令</span>
+            </h2>
+            <p className="join__lead">
+              无论你是技术精英、创意先锋，还是沟通达人、管理人才，思源极客协会均为你提供施展才华的广阔空间。
+              <strong>不限专业、无谓经验多少</strong>，只要心怀热忱、渴望为校园信息化建设贡献力量——
+              这里便是成就梦想的起点。
+            </p>
+          </Reveal>
+
+          <Reveal delay={80}>
+            <h3 className="join__sub">
+              <span className="accent">{`>`}</span> 加入我们，你将收获
+            </h3>
+          </Reveal>
+
+          <div className="join__benefits">
+            {joinBenefits.map((b, i) => (
+              <Reveal
+                key={b.title}
+                delay={120 + i * 80}
+                className="join-benefit corner"
+              >
+                <span className="join-benefit__no">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h4 className="join-benefit__title">{b.title}</h4>
+                <p className="join-benefit__desc">{b.desc}</p>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={120}>
+            <h3 className="join__sub">
+              <span className="accent">{`>`}</span> 联系我们
+            </h3>
+          </Reveal>
+
+          <div className="join__links">
+            {joinLinks.map((l, i) => (
+              <Reveal
+                key={l.title}
+                delay={160 + i * 100}
+                className="join-link corner"
+              >
+                <div className="join-link__head">
+                  <span className="join-link__label">// {l.label}</span>
+                  <h4 className="join-link__title">{l.title}</h4>
+                </div>
+
+                <div className="join-link__qr">
+                  <QRCodeSVG
+                    value={l.url}
+                    size={148}
+                    bgColor="#FFFFFF"
+                    fgColor="#1D211C"
+                    level="M"
+                    marginSize={1}
+                  />
+                </div>
+
+                <a
+                  className="join-link__url"
+                  href={l.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={l.url}
+                >
+                  <span className="join-link__cta">{l.cta} ↗</span>
+                </a>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
     </div>
