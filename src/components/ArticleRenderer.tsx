@@ -2,19 +2,23 @@ import { useEffect, useMemo, useRef } from 'react';
 import './ArticleRenderer.css';
 
 /**
- * 通过 Vite import.meta.glob 把 src/articles 下的所有图片打包，
- * 取得文件名 → 资产 URL 的映射。Vite 会自动加 hash、自动尊重 base URL，
+ * 通过 Vite import.meta.glob 把 src/articles/_optimized/ 下所有图片打包，
+ * 得到 文件名 → 资产 URL 的映射。
+ *
+ * _optimized/ 由 `pnpm articles` 阶段用 sharp 输出（resize + webp），
+ * 跟原图保持镜像目录结构。Vite 会自动加 hash、自动尊重 base URL，
  * 不需要把图片复制到 public/。
  */
 const assetModules = import.meta.glob(
-  '../articles/**/*.{png,jpg,jpeg,gif,svg,webp,avif,bmp,PNG,JPG,JPEG,GIF}',
+  '../articles/_optimized/**/*.{webp,svg,png,PNG,SVG,WEBP}',
   { eager: true, import: 'default' },
 ) as Record<string, string>;
 
 const assetMap: Record<string, string> = {};
 for (const [key, url] of Object.entries(assetModules)) {
-  // 把 '../articles/images/xxx.png' 这种 key 收敛成跟 sentinel 一致的形式
-  const short = key.replace(/^\.\.\/articles\//, '');
+  // glob key 形如 '../articles/_optimized/images/foo.webp' →
+  // sentinel 里保存的是 'images/foo.webp'，把前缀剥掉对齐
+  const short = key.replace(/^\.\.\/articles\/_optimized\//, '');
   assetMap[short] = url;
 }
 
