@@ -8,6 +8,7 @@ import Products from './pages/Products';
 import News from './pages/News';
 import NewsArticle from './pages/NewsArticle';
 import About from './pages/About';
+import WikiContrib from './pages/WikiContrib';
 
 export default function App() {
   const location = useLocation();
@@ -23,6 +24,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/wiki/contrib" element={<WikiContrib />} />
           <Route path="/news" element={<News />} />
           <Route path="/news/:slug" element={<NewsArticle />} />
           <Route path="/about" element={<About />} />
