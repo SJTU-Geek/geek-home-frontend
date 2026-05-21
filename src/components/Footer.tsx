@@ -16,7 +16,7 @@ export default function Footer() {
           <div className="footer__brand">
             <img src={brandSvg} alt="思源极客协会" />
             <p>
-              来自学生 · 立足学生 · 服务学生 · 锻炼学生
+              来自学生 · 立足学生 · 服务学生 · 引领学生
             </p>
           </div>
 

@@ -63,7 +63,7 @@ const goalGroups = [
       {
         no: '04',
         title: '组织开展信息化技能公众培训',
-        desc: '定期邀请专家与（思源）极协资深成员组织专题技能培训，推进信息化知识的传播与传承，提高在校师生的信息化思维水平与信息化技术能力。',
+        desc: '定期邀请专家与协会资深成员组织专题技能培训，推进信息化知识的传播与传承，提高在校师生的信息化思维水平与信息化技术能力。',
       },
       {
         no: '05',
@@ -258,7 +258,7 @@ export default function Home() {
           <p className="hero__slogan">
             来自学生<span className="dot">·</span>立足学生
             <span className="dot">·</span>服务学生<span className="dot">·</span>
-            锻炼学生
+            引领学生
           </p>
 
           <div className="hero__actions">
@@ -281,7 +281,7 @@ export default function Home() {
           <div className="hero__stats">
             <div className="hero__stat">
               <span className="hero__stat-k">EST.</span>
-              <span className="hero__stat-v">2024</span>
+              <span className="hero__stat-v">2024.12</span>
             </div>
             <div className="hero__stat">
               <span className="hero__stat-k">DEPT.</span>
@@ -310,18 +310,20 @@ export default function Home() {
               <span className="accent">信息技术</span>校级组织
             </h2>
             <p className="intro__lead">
-              <strong>上海交通大学学生信息技术协会</strong>，别名{' '}
+              协会全称{' '}
+              <strong>上海交通大学学生信息技术协会</strong>，英文全称{' '}
+              <strong>SJTU Student Information Technology Association</strong>，别名{' '}
               <strong>思源极客协会</strong>，简称{' '}
-              <strong>思源极协</strong>。是在上海交通大学学生工作指导委员会领导下，
+              <strong>思源极协</strong>，英文别名{' '}
+              <strong>Si-Yuan Geek Association</strong>，是在上海交通大学学生工作指导委员会领导下，
               由学生事务中心、网络信息中心、共青团上海交通大学委员会共同指导的校级学生组织。
             </p>
             <p className="intro__lead">
               协会汇集校内信息技术人才，是学校培养、组织学生自主参与校园信息化建设的平台与纽带。
             </p>
             <div className="intro__codes">
-              <span>SJTU SITA</span>
-              <span>SYGA</span>
               <span>SJTUSITA</span>
+              <span>SYGA</span>
             </div>
           </Reveal>
 
@@ -333,7 +335,7 @@ export default function Home() {
                 className="intro__card-img"
               />
               <div className="intro__card-meta">
-                <span className="intro__card-tag">// 2026 spring · all-hands</span>
+                <span className="intro__card-tag">// 2026 spring · general meeting</span>
               </div>
             </div>
           </Reveal>
@@ -406,12 +408,12 @@ export default function Home() {
           <Reveal>
             <p className="section-eyebrow">// 组织架构</p>
             <h2 className="section-title">
-              部长联席会议 · <span className="accent">五部协同</span>
+              五部协同 · <span className="accent">打造专业化学生团队</span>
             </h2>
           </Reveal>
 
           <Reveal delay={80} className="org__chairs">
-            <span className="org__chairs-label">部长联席会议</span>
+            <span className="org__chairs-label">协会组成部门</span>
             <span className="org__chairs-line" aria-hidden />
           </Reveal>
 
@@ -464,7 +466,7 @@ export default function Home() {
               // 核心项目成果
             </p>
             <h3 className="rd__sub-title">
-              从徽章激励到 AI 素养，已落地或正在路上
+              从校园成就到 AI 素养，已落地或正在路上
             </h3>
           </Reveal>
 

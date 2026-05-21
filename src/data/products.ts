@@ -47,7 +47,7 @@ export const products: Product[] = [
       { title: '数据来源可信', detail: '对接校内多类信息系统，自动采集与实时更新。' },
       { title: '数字徽章呈现', detail: '每枚徽章独立设计、专属编号，兼具激励性与传播性。' },
       { title: '可视化成长轨迹', detail: '支持成就墙、分类汇总等多种视图。' },
-      { title: '权威导出支撑', detail: '可导出个人成就报告，作为评奖评优数据支撑。' }
+      { title: '权威导出支撑（计划）', detail: '后续将支持个人成就报告导出功能，作为校内认可的权威数据支撑。' }
     ],
     images: ['https://notes.sjtu.edu.cn/uploads/upload_07986f0efb64a1d60bb41cdb48e7d9a8.png'],
     developers: [],
@@ -130,9 +130,9 @@ export const products: Product[] = [
     status: '策划中',
     tagline: '面向全体在校学生的系统化人工智能素养提升项目。',
     description: [
-      '“学生 AI+ 素养提升计划”由学生事务中心联合校团委、一门式学生服务中心、图书馆、网络信息中心、学生创新中心、计算机学院、人工智能学院等单位共同发起，由“思源极客”协会主导推进。',
+      '“学生 AI+ 素养提升计划”由学生事务中心联合校团委、一门式学生服务中心、图书馆、网络信息中心、学生创新中心、计算机学院、人工智能学院等单位共同发起，由“思源极客”学生信息技术协会牵头推进。',
       '计划以专题讲座为核心形式，构建多模块、多层次的内容体系，主要包括 AI 科普入门、AI+办公赋能、AI+创意生成、AI 智慧生态四大模块。',
-      '通过组委会统筹协作、学生讲师团驱动、多平台推广宣传以及实训反馈闭环的实施机制，全面提升学生信息素养与人工智能应用能力，形成“受助—自助—助人”的良性循环。'
+      '通过组委会统筹协作、学生讲师团驱动、多平台推广宣传以及实训反馈闭环的实施机制，全面提升学生信息素养与人工智能应用能力，并不断深化“受助—自助—助人”的良性循环。'
     ],
     features: [
       { title: 'AI 科普入门', detail: '人工智能基础、提示词工程、智能化工作流实践。' },
@@ -140,7 +140,7 @@ export const products: Product[] = [
       { title: 'AI+ 创意生成', detail: '图像生成、音视频与数字人创作、AI 课堂教学。' },
       { title: 'AI 智慧生态', detail: '搭建个人智能生态：智能体、自动化工作流、私有知识库。' }
     ],
-    images: ['https://notes.sjtu.edu.cn/uploads/upload_0c1b1d2d4ddcbc8de7f180de7bd409f8.png'],
+    images: ['https://notes.sjtu.edu.cn/uploads/upload_689eba4a144c44f08731359a7a34202e.png'],
     developers: [],
     accent: '#6a4cc8',
     tags: ['AI', '素养教育', '讲座体系'],

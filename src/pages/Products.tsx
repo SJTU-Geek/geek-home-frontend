@@ -112,8 +112,7 @@ export default function Products() {
           <Reveal>
             <p className="section-eyebrow">// 执行排期 · Roadmap 2026</p>
             <h2 className="section-title">
-              在路上的 <span className="accent">{schedules.length}</span>{' '}
-              个项目 · 按月排布
+              2026 · 项目<span className="accent">月度推进</span>{' '}
             </h2>
             <p className="roadmap__desc">
               当前已对外可见的核心项目排期。横向时间线展示了从需求调研到上线的全过程，
