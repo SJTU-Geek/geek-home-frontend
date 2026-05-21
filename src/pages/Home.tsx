@@ -335,7 +335,7 @@ export default function Home() {
                 className="intro__card-img"
               />
               <div className="intro__card-meta">
-                <span className="intro__card-tag">// 2026 spring · general meeting</span>
+                <span className="intro__card-tag">// 2026 SPRING · ALL-HANDS</span>
               </div>
             </div>
           </Reveal>
