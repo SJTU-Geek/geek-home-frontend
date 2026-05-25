@@ -115,7 +115,7 @@
 
 .about__guidance-role {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--color-red);
   letter-spacing: 0.16em;
 }

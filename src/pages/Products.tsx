@@ -50,7 +50,7 @@ export default function Products() {
             </span>
           </h1>
           <p className="products__desc">
-            协会主导或参与的{products.filter((p) => !p.hidden).length} 个核心项目，覆盖
+            协会主导或参与的 {products.filter((p) => !p.hidden).length} 个核心项目，覆盖
             <span className="accent">校园成就</span>、
             <span className="accent">信息聚合</span>、
             <span className="accent">AI 智慧生态</span>、

@@ -82,7 +82,7 @@
 }
 
 .filter-chip__count {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--color-text-mute);
   padding: 1px 6px;
   border: 1px solid var(--color-line);
@@ -164,7 +164,7 @@
   padding: 14px 16px;
   border-bottom: 1px solid var(--color-line);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.12em;
 }
 
@@ -174,7 +174,7 @@
   gap: 7px;
   padding: 3px 10px;
   border: 1px solid;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.12em;
 }
 
@@ -272,7 +272,7 @@
 
 .product-card__sub {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--color-text-mute);
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -294,7 +294,7 @@
 
 .product-card__tags span {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--color-text-mute);
   padding: 3px 8px;
   border: 1px solid var(--color-line);
@@ -324,7 +324,7 @@
 .product-card__features-title {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--accent, var(--color-red));
   letter-spacing: 0.18em;
   margin-bottom: 12px;
@@ -388,7 +388,7 @@
 
 .product-card__cta-label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   color: var(--accent, var(--color-red));
   text-transform: uppercase;
@@ -538,7 +538,7 @@
 
 .gantt__sidebar--head {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   color: var(--color-red);
   text-transform: uppercase;
@@ -561,7 +561,7 @@
   align-items: center;
   height: 100%;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   color: var(--color-text-mute);
 }
@@ -633,7 +633,7 @@
 
 .gantt__group-count {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--color-text-mute);
   letter-spacing: 0.12em;
   margin-left: auto;
@@ -702,7 +702,7 @@
 }
 
 .gantt__bar-label {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.04em;
   text-overflow: ellipsis;
   overflow: hidden;

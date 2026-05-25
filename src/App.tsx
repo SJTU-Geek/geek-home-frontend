@@ -2,7 +2,6 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
-import GeekCorner from './components/GeekCorner';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import News from './pages/News';
@@ -32,7 +31,6 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-      <GeekCorner />
     </>
   );
 }

@@ -110,7 +110,7 @@
 .wiki-card__label {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--color-red);
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -254,7 +254,7 @@
 
 .wiki-banner__label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   color: var(--color-red);
   white-space: nowrap;
@@ -288,7 +288,7 @@
 /* ---- badge ---- */
 .wiki-badge {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   padding: 4px 10px;
   border: 1px solid;
@@ -400,7 +400,7 @@
   padding: 8px 12px;
   border-bottom: 1px solid var(--color-line);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   color: var(--color-text-mute);
   text-transform: uppercase;

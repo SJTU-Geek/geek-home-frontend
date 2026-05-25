@@ -3,6 +3,7 @@ import { QRCodeSVG } from 'qrcode.react';
 import HeroCanvas from '../components/HeroCanvas';
 import Typewriter from '../components/Typewriter';
 import Reveal from '../components/Reveal';
+import GeekCorner from '../components/GeekCorner';
 import techNetworkImg from '../assets/tech-network.png';
 import dotBlurImg from '../assets/logo-dot-blur.png';
 import groupPhotoImg from '../assets/group-photo.jpg';
@@ -604,6 +605,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <GeekCorner />
     </div>
   );
 }

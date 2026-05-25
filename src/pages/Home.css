@@ -232,7 +232,7 @@
 
 .hero__stat-k {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--color-text-mute);
   letter-spacing: 0.18em;
 }
@@ -254,7 +254,7 @@
   align-items: center;
   gap: 10px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--color-text-mute);
   letter-spacing: 0.3em;
   z-index: 3;
@@ -459,7 +459,7 @@
 .goal-card__tag {
   align-self: flex-start;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   padding: 4px 10px;
   border: 1px solid;
@@ -553,7 +553,7 @@
 
 .org-card__type {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   color: var(--color-red);
   padding: 2px 8px;
@@ -584,7 +584,7 @@
 
 .org-card__roles span {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--color-text-mute);
   padding: 3px 8px;
   border: 1px solid var(--color-line);
@@ -676,7 +676,7 @@
 .proj-card__status {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   padding: 3px 8px;
   border: 1px solid;
@@ -711,7 +711,7 @@
 
 .proj-card__tags span {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--color-text-mute);
   padding: 3px 8px;
   border: 1px solid var(--color-line);
@@ -881,7 +881,7 @@
 
 .join-link__label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--color-red);
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -949,7 +949,7 @@
 
 .join-link__url-text {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--color-text-mute);
   letter-spacing: 0.04em;
   word-break: break-all;

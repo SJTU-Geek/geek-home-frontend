@@ -153,7 +153,7 @@
   left: 12px;
   padding: 4px 8px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   color: var(--color-white);
   background: rgba(20, 23, 21, 0.78);
@@ -213,7 +213,7 @@
 
 .news-card__tags span {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--color-text-mute);
   padding: 2px 8px;
   border: 1px solid var(--color-line);
@@ -221,7 +221,7 @@
 
 .news-card__reading {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--color-text-mute);
   letter-spacing: 0.08em;
 }

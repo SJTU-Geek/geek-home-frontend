@@ -19,8 +19,13 @@
   --color-text-dim: #c9cfca;
   --color-text-mute: #8a918d;
 
+  /* mono 栈：拉丁字符走 JetBrains Mono / Consolas（保留 mono 视觉），
+     中文字符按 CSS per-glyph 回退穿过这些不含 CJK 字形的拉丁 mono 字体，
+     落到 PingFang SC / 微软雅黑等 CJK sans —— 避免 Windows 系统级 fallback
+     把中文渲染成 SimSun（衬线，小字号下糊成一团） */
   --font-mono: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas,
-    'Liberation Mono', Menlo, monospace;
+    'Liberation Mono', Menlo, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'WenQuanYi Micro Hei', monospace;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
 
