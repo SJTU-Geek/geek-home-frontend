@@ -107,7 +107,7 @@ export default function Products() {
       </section>
 
       {/* ============ ROADMAP / GANTT ============ */}
-      <section className="section roadmap">
+      {false && <section className="section roadmap">
         <div className="container">
           <Reveal>
             <p className="section-eyebrow">// 执行排期 · Roadmap 2026</p>
@@ -124,7 +124,7 @@ export default function Products() {
             <Gantt />
           </Reveal>
         </div>
-      </section>
+      </section>}
     </div>
   );
 }
