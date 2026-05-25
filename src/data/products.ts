@@ -140,7 +140,11 @@ export const products: Product[] = [
       { title: 'AI+ 创意生成', detail: '图像生成、音视频与数字人创作、AI 课堂教学。' },
       { title: 'AI 智慧生态', detail: '搭建个人智能生态：智能体、自动化工作流、私有知识库。' }
     ],
-    images: ['https://notes.sjtu.edu.cn/uploads/upload_689eba4a144c44f08731359a7a34202e.png'],
+    images: [
+      'https://notes.sjtu.edu.cn/uploads/upload_80e527513f8b67673026a7abde1df4f4.png',
+      'https://notes.sjtu.edu.cn/uploads/upload_d7867933f55e13e07a8c6cdba8bc8ba6.png',
+      'https://notes.sjtu.edu.cn/uploads/upload_909db95858dfe000a532c87997594418.png',
+    ],
     developers: [],
     accent: '#6a4cc8',
     tags: ['AI', '素养教育', '讲座体系'],
@@ -192,7 +196,9 @@ export const products: Product[] = [
       { title: '轻量学生主导', detail: '聚焦自发组织，区别于自上而下的活动报名。' },
       { title: '校园生态联动', detail: '探索与校内信息平台的数据互通与资源联动。' }
     ],
-    images: [],
+    images: [
+      'https://notes.sjtu.edu.cn/uploads/upload_dbc7288625d076be6a53706ae38a63be.png'
+    ],
     developers: [],
     accent: '#d99543',
     tags: ['组队', '校园活动', '自组织'],
