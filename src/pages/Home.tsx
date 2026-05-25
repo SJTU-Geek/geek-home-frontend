@@ -285,8 +285,8 @@ export default function Home() {
               <span className="hero__stat-v">2024.12</span>
             </div>
             <div className="hero__stat">
-              <span className="hero__stat-k">DEPT.</span>
-              <span className="hero__stat-v">05</span>
+              <span className="hero__stat-k">MEMBERS</span>
+              <span className="hero__stat-v">34</span>
             </div>
             <div className="hero__stat">
               <span className="hero__stat-k">CODE</span>
@@ -322,10 +322,6 @@ export default function Home() {
             <p className="intro__lead">
               协会汇集校内信息技术人才，是学校培养、组织学生自主参与校园信息化建设的平台与纽带。
             </p>
-            <div className="intro__codes">
-              <span>SJTUSITA</span>
-              <span>SYGA</span>
-            </div>
           </Reveal>
 
           <Reveal className="intro__right" delay={120}>

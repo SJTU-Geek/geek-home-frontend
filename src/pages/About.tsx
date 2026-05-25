@@ -24,8 +24,8 @@ export default function About() {
           <p className="about__alias">
             <span>别名</span>
             思源极客协会
-            <span>·</span>
-            简称 思源极协
+            <span>简称</span>
+            思源极协
           </p>
           <p className="about__alias">
             <span>EN</span>
