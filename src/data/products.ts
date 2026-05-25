@@ -121,7 +121,7 @@ export const products: Product[] = [
     developers: [],
     accent: '#a85a3a',
     tags: ['官网', '形象展示', '招新'],
-    hidden: false
+    hidden: true
   },
   {
     id: 'literacy-enhancement',
@@ -173,7 +173,7 @@ export const products: Product[] = [
     developers: [],
     accent: '#1f7a8c',
     tags: ['通知聚合', '订阅', '智能推送'],
-    hidden: false
+    hidden: true
   },
   {
     id: 'tongqu',
@@ -218,7 +218,7 @@ export const products: Product[] = [
     developers: [],
     accent: '#7d6cc7',
     tags: ['AI', '问答', '辅导员'],
-    hidden: false
+    hidden: true
   },
   {
     id: 'sjtu-mcp',
@@ -264,7 +264,7 @@ export const products: Product[] = [
     developers: [],
     accent: '#e07b59',
     tags: ['地图', '足迹', '社交分享'],
-    hidden: false
+    hidden: true
   },
   {
     id: 'trailestone',
@@ -287,6 +287,6 @@ export const products: Product[] = [
     developers: [],
     accent: '#5d8a66',
     tags: ['可视化', '河流图', '开源'],
-    hidden: false
+    hidden: true
   }
 ]

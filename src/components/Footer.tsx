@@ -3,9 +3,9 @@ import './Footer.css';
 
 const friends = [
   { name: '上海交通大学', url: 'https://www.sjtu.edu.cn/' },
+  { name: '学生事务中心', url: 'https://affairs.sjtu.edu.cn/' },
   { name: 'SJTUG', url: 'https://mirrors.sjtug.sjtu.edu.cn/' },
   { name: 'SJMC', url: 'https://mc.sjtu.cn/' },
-  { name: '学生事务中心', url: 'https://affairs.sjtu.edu.cn/' },
 ];
 
 export default function Footer() {
