@@ -51,7 +51,7 @@ export default function Footer() {
         <div className="footer__bottom">
           <span>© 2026 上海交通大学学生信息技术协会</span>
           <span className="footer__divider" aria-hidden>·</span>
-          <span>沪交ICP备20250053</span>
+          <a href='https://beian.miit.gov.cn/'><span>沪交ICP备20250053</span></a>
         </div>
       </div>
     </footer>

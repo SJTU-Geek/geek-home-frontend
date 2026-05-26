@@ -162,11 +162,17 @@
   letter-spacing: 0.12em;
   animation: fadeUp 0.9s ease both;
   animation-delay: 0.4s;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+}
+
+.hero__slogan-item {
+  white-space: nowrap;
 }
 
 .hero__slogan .dot {
-  display: inline-block;
-  margin: 0 12px;
   color: var(--color-red);
 }
 
@@ -731,8 +737,59 @@
 }
 
 @media (max-width: 720px) {
+  /* ===== HERO 窄屏适配 ===== */
+  /* 仍然撑满首屏，但用 svh 而非 vh，避开 iOS 地址栏导致 100vh 比真实
+     viewport 偏高、底部内容被挤出可视区的老问题 */
+  .hero {
+    min-height: 100svh;
+  }
+  .hero__inner {
+    padding-top: 24px;
+    padding-bottom: 56px;
+  }
+  .hero__meta {
+    margin-bottom: 18px;
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  .hero__title {
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .hero__title-zh {
+    font-size: clamp(40px, 14vw, 64px);
+    line-height: 1.0;
+    text-align: left;
+    letter-spacing: 0.02em;
+  }
+  .hero__title-en {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+  }
+  .hero__slogan {
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    gap: 2px 8px;
+    margin-bottom: 24px;
+  }
+  .hero__actions {
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  .btn {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
   .hero__stats {
-    gap: 24px;
+    gap: 18px 28px;
+  }
+  .hero__stat-v {
+    font-size: 15px;
+  }
+  /* 移动端用户都会下滑，SCROLL 装饰物去掉省得跟 stats 撞 */
+  .hero__scroll {
+    display: none;
   }
   .hero__dotblur {
     opacity: 0.25;
@@ -740,6 +797,8 @@
     right: -14%;
     top: 24%;
   }
+
+  /* ===== 其它窄屏节流 ===== */
   .rd__pipeline {
     flex-direction: column;
     align-items: flex-start;

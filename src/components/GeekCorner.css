@@ -17,10 +17,10 @@
 
 @keyframes cornerFloat {
   from {
-    transform: translate(20px, 120px) scale(1);
+    transform: translate(10%, 50%) scale(1);
   }
   to {
-    transform: translate(-20px, 180px) scale(1.2);
+    transform: translate(-5%, 40%) scale(1.2);
   }
 }
 

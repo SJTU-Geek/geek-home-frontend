@@ -257,9 +257,13 @@ export default function Home() {
           </h1>
 
           <p className="hero__slogan">
-            来自学生<span className="dot">·</span>立足学生
-            <span className="dot">·</span>服务学生<span className="dot">·</span>
-            引领学生
+            <span className="hero__slogan-item">来自学生</span>
+            <span className="dot" aria-hidden>·</span>
+            <span className="hero__slogan-item">立足学生</span>
+            <span className="dot" aria-hidden>·</span>
+            <span className="hero__slogan-item">服务学生</span>
+            <span className="dot" aria-hidden>·</span>
+            <span className="hero__slogan-item">引领学生</span>
           </p>
 
           <div className="hero__actions">
