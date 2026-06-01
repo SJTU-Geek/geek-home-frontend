@@ -813,6 +813,8 @@
    ========================= */
 .join {
   position: relative;
+  /* 留出 navbar 高度，让 #join 锚定滚动时标题不会被固定 navbar 盖住 */
+  scroll-margin-top: var(--nav-h);
 }
 
 .join__title {

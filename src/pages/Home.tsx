@@ -281,6 +281,17 @@ export default function Home() {
             <Link to="/about" className="btn btn--ghost">
               了解协会
             </Link>
+            <button
+              type="button"
+              className="btn btn--ghost"
+              onClick={() => {
+                document
+                  .getElementById('join')
+                  ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
+            >
+              加入协会
+            </button>
           </div>
 
           <div className="hero__stats">
@@ -409,7 +420,7 @@ export default function Home() {
           <Reveal>
             <p className="section-eyebrow">// 组织架构</p>
             <h2 className="section-title">
-              五部协同 · <span className="accent">打造专业化学生团队</span>
+              五部协同 · 打造<span className="accent">专业化学生团队</span>
             </h2>
           </Reveal>
 
@@ -526,7 +537,7 @@ export default function Home() {
       </section>
 
       {/* ============ 招新 / 召集令 ============ */}
-      <section className="section join">
+      <section id="join" className="section join">
         <div className="container">
           <Reveal>
             <p className="section-eyebrow">// 加入我们 · Join us</p>
