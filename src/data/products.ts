@@ -205,6 +205,32 @@ export const products: Product[] = [
     hidden: false
   },
   {
+    id: 'aixinwu',
+    name: '爱心屋网站开发',
+    subtitle: 'Aixinwu\'s New Website',
+    status: '已发布',
+    url: 'https://aixinwu.sjtu.edu.cn/',
+    tagline: '基于 Saleor 定制的轻量级商城系统。',
+    description: [
+      '爱心屋是上海交通大学校园公益物资流转平台，服务超 6 万名注册用户，年流转物品超 36 万件。',
+      '平台连接线下实体中心与线上商城，支持闲置物品捐赠、积分获取、公益物资兑换等核心业务。',
+      '项目基于 Saleor 开源电商框架深度定制开发，为校园公益与绿色低碳实践提供数字化支撑。'
+    ],
+    features: [
+      { title: '线上线下一体化', detail: '打通捐赠、入库、兑换、领取全流程。' },
+      { title: '爱心积分体系', detail: '以积分激励促进公益参与和资源循环。' },
+      { title: '电商化运营', detail: '支持商品、库存、订单等完整商城能力。' },
+      { title: '公益透明可追溯', detail: '实现物资流转全过程数字化管理。' }
+    ],
+    images: [
+      'https://notes.sjtu.edu.cn/uploads/upload_bc816cbb1905cbaaba48c53a6e532587.png'
+    ],
+    developers: [],
+    accent: '#30b162',
+    tags: ['商城', '管理系统', '开源项目'],
+    hidden: false
+  },
+  {
     id: 'ai-counselor',
     name: 'AI 辅导员',
     subtitle: 'AI Counselor Assistant',
