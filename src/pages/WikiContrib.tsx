@@ -69,7 +69,7 @@ export default function WikiContrib() {
             </span>
           </h1>
           <p className="wiki-contrib__desc">
-            绑定 jAccount 与 GitHub 后，可查看你在 SJTU Wiki 等条目体系下累计的贡献分数。
+            绑定 jAccount 与 GitHub 后，可查看你在 SJTU Wiki 累计的贡献分数。
             jAccount / 学工号 / GitHub 名义下的贡献会自动归并到同一账号。
           </p>
         </div>
@@ -250,7 +250,7 @@ function ReadyView({ me, wiki }: { me: Me; wiki: WikiData }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            传承交大 ↗
+            传承·交大 ↗
           </a>{' '}
           兑换 Wiki 贡献分数。
         </p>

@@ -95,7 +95,7 @@ export const products: Product[] = [
       { title: '协同编辑共建', detail: '鼓励用户参与编辑更新，共建共治的内容生态。' },
       { title: '智能问答（计划）', detail: '后续将引入大模型问答模块，支持自然语言查询。' }
     ],
-    images: ['https://notes.sjtu.edu.cn/uploads/upload_f8c5868a089cfb1931c421bc1eb5f5f0.png'],
+    images: ['https://notes.sjtu.edu.cn/uploads/upload_29b2aef480a8314d8643c24684973607.png'],
     developers: [],
     accent: '#0fa382',
     tags: ['百科', '知识库', '协同编辑'],
