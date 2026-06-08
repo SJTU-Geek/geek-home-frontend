@@ -228,7 +228,7 @@ function ProductCard({ product, open, onToggle }: ProductCardProps) {
               </div>
             )}
 
-            {product.id === 'sjtu-wiki' && false && (
+            {product.id === 'sjtu-wiki' && (
               <Link to="/products/wiki/contrib" className="product-card__cta">
                 <span className="product-card__cta-label">// 参与即可获得积分</span>
                 <span className="product-card__cta-text">
