@@ -205,6 +205,31 @@ export const products: Product[] = [
     hidden: false
   },
   {
+    id: 'course-plus',
+    name: 'Course+ 课表助手',
+    subtitle: 'Course Index & Planner',
+    status: '已发布',
+    url: 'https://geek.sjtu.edu.cn/course-plus',
+    tagline: '交大全学期开课索引与虚拟排课工具，选课排课一站搞定。',
+    description: [
+      'Course+ 是“思源极客”协会开发维护的开源课表工具，为上海交通大学师生提供学期开课数据索引与虚拟排课服务，课程数据来自教学信息服务网。',
+      '平台支持多维度筛选全校开课信息，星标收藏课程并自动汇总学分；选中课程即可生成可视化彩色课表，辅助规划选课方案、检查时间冲突。',
+      '通过 jAccount 登录可一键同步教务系统中的真实课表，并支持将课表导出为 iCalendar 日历文件（含假期调休安排），导入常用日历应用。'
+    ],
+    features: [
+      { title: '多维度课程检索', detail: '按课程名称、新旧课程号、年级、课程性质、开课学院、通识模块、上课时间、任课教师等条件筛选。' },
+      { title: '星标收藏与学分统计', detail: '星标心仪课程，自动汇总学分，选课规划一目了然。' },
+      { title: '可视化虚拟排课', detail: '选中课程生成彩色课表，光谱配色区分课程，轻松排查时间冲突。' },
+      { title: '教务课表一键同步', detail: 'jAccount 授权后同步教学信息服务网真实课表，无需手动录入。' },
+      { title: 'iCalendar 日历导出', detail: '支持设置学期首日与调休安排，一键导出 .ics 文件导入日历应用。' }
+    ],
+    images: ['https://notes.sjtu.edu.cn/uploads/upload_2b6e347c6851d6a823a652f570dff427.png'],
+    developers: [],
+    accent: '#3d6cb0',
+    tags: ['课表', '排课', '选课', '开源'],
+    hidden: false
+  },
+  {
     id: 'aixinwu',
     name: '爱心屋网站开发',
     subtitle: 'Aixinwu\'s New Website',
@@ -320,5 +345,5 @@ export const products: Product[] = [
     accent: '#5d8a66',
     tags: ['可视化', '河流图', '开源'],
     hidden: true
-  }
+  },
 ]
