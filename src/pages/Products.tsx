@@ -1,7 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
-import { products, type Product, type ProductStatus } from '../data/products';
+import { fetchProducts, type Product, type ProductStatus } from '../api/products';
 import { schedules } from '../data/schedule';
 import './Products.css';
 
@@ -18,24 +18,39 @@ type Filter = ProductStatus | 'all';
 export default function Products() {
   const [filter, setFilter] = useState<Filter>('all');
   const [openId, setOpenId] = useState<string | null>(null);
+  const [products, setProducts] = useState<Product[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
+  const load = useCallback(async () => {
+    setError(null);
+    const res = await fetchProducts();
+    if (res.kind === 'ok') {
+      setProducts(res.products);
+    } else {
+      setError(res.message);
+    }
+  }, []);
+
+  useEffect(() => {
+    load();
+  }, [load]);
+
+  // 后端已过滤 hidden 并按 order 排序；这里只做状态筛选
   const visible = useMemo(
-    () =>
-      products.filter(
-        (p) => !p.hidden && (filter === 'all' || p.status === filter),
-      ),
-    [filter],
+    () => (products || []).filter((p) => filter === 'all' || p.status === filter),
+    [products, filter],
   );
 
   const counts = useMemo(() => {
     const c: Record<string, number> = { all: 0 };
-    for (const p of products) {
-      if (p.hidden) continue;
+    for (const p of products || []) {
       c.all += 1;
       c[p.status] = (c[p.status] || 0) + 1;
     }
     return c;
-  }, []);
+  }, [products]);
+
+  const visibleCount = products?.length ?? 0;
 
   return (
     <div className="products">
@@ -50,7 +65,7 @@ export default function Products() {
             </span>
           </h1>
           <p className="products__desc">
-            协会主导或参与的 {products.filter((p) => !p.hidden).length} 个核心项目，覆盖
+            协会主导或参与的 {visibleCount} 个核心项目，覆盖
             <span className="accent">校园成就</span>、
             <span className="accent">信息聚合</span>、
             <span className="accent">AI 智慧生态</span>、
@@ -83,26 +98,50 @@ export default function Products() {
       {/* ============ 项目网格 ============ */}
       <section className="section products__grid-section">
         <div className="container">
-          <div className="products__grid">
-            {visible.map((p, i) => (
-              <Reveal
-                key={p.id}
-                delay={Math.min(i * 60, 360)}
-                className={`product-card-wrap ${openId === p.id ? 'is-open' : ''}`}
-              >
-                <ProductCard
-                  product={p}
-                  open={openId === p.id}
-                  onToggle={() => setOpenId(openId === p.id ? null : p.id)}
-                />
-              </Reveal>
-            ))}
-            {visible.length === 0 && (
-              <div className="products__empty">
-                <p>// no projects in this status</p>
-              </div>
-            )}
-          </div>
+          {products === null && !error && (
+            <div className="products__grid" aria-busy>
+              {Array.from({ length: 6 }, (_, i) => (
+                <div key={i} className="product-card products__skeleton corner">
+                  <div className="products__skeleton-line products__skeleton-line--cover" />
+                  <div className="products__skeleton-body">
+                    <div className="products__skeleton-line" style={{ width: '60%' }} />
+                    <div className="products__skeleton-line" style={{ width: '85%' }} />
+                    <div className="products__skeleton-line" style={{ width: '40%' }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+          {error && (
+            <div className="products__empty">
+              <p style={{ color: 'var(--color-red)' }}>// failed to load projects: {error}</p>
+              <button type="button" className="btn btn--ghost" onClick={load}>
+                重试
+              </button>
+            </div>
+          )}
+          {products !== null && !error && (
+            <div className="products__grid">
+              {visible.map((p, i) => (
+                <Reveal
+                  key={p.id}
+                  delay={Math.min(i * 60, 360)}
+                  className={`product-card-wrap ${openId === p.id ? 'is-open' : ''}`}
+                >
+                  <ProductCard
+                    product={p}
+                    open={openId === p.id}
+                    onToggle={() => setOpenId(openId === p.id ? null : p.id)}
+                  />
+                </Reveal>
+              ))}
+              {visible.length === 0 && (
+                <div className="products__empty">
+                  <p>// no projects in this status</p>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </section>
 
@@ -121,7 +160,7 @@ export default function Products() {
           </Reveal>
 
           <Reveal delay={120}>
-            <Gantt />
+            <Gantt products={products ?? []} />
           </Reveal>
         </div>
       </section>}
@@ -282,7 +321,7 @@ function ProductCard({ product, open, onToggle }: ProductCardProps) {
 }
 
 /* ---------- Gantt ---------- */
-function Gantt() {
+function Gantt({ products }: { products: Product[] }) {
   const { minMs, maxMs, total, months } = useMemo(() => {
     const allTasks = schedules.flatMap((s) => s.tasks);
     const starts = allTasks.map((t) => new Date(t.start).getTime());
@@ -307,7 +346,7 @@ function Gantt() {
     const map: Record<string, string> = {};
     for (const p of products) map[p.id] = p.accent;
     return map;
-  }, []);
+  }, [products]);
 
   const now = Date.now();
   const nowLeft =

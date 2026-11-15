@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 import HeroCanvas from '../components/HeroCanvas';
 import Typewriter from '../components/Typewriter';
 import Reveal from '../components/Reveal';
 import GeekCorner from '../components/GeekCorner';
+import { fetchProducts, type Product } from '../api/products';
 import techNetworkImg from '../assets/tech-network.png';
 import dotBlurImg from '../assets/logo-dot-blur.png';
 import groupPhotoImg from '../assets/group-photo.jpg';
@@ -144,36 +146,6 @@ const pipeline = [
   '成果落地',
 ];
 
-const projects = [
-  {
-    name: '校园成就系统',
-    subtitle: 'Campus Achievement',
-    status: '已发布',
-    url: 'https://geek.sjtu.edu.cn/badges/',
-    tagline: '一套结构化、可视化的成长记录与激励机制平台。',
-    tags: ['成就', '徽章', '校园成长'],
-    accent: '#c8324a',
-  },
-  {
-    name: 'SJTU Wiki 校园百科平台',
-    subtitle: 'Student-led Campus Wiki',
-    status: '已发布',
-    url: 'https://sjtu-geek.github.io/SJTU-Wiki/',
-    tagline: '由学生主导建设的非官方校园百科，构建持续更新的知识库。',
-    tags: ['百科', '知识库', '协同编辑'],
-    accent: '#0fa382',
-  },
-  {
-    name: '学生 AI+ 素养提升计划',
-    subtitle: 'AI Literacy Enhancement',
-    status: '策划中',
-    url: '',
-    tagline: '面向全体在校学生的系统化人工智能素养提升项目。',
-    tags: ['AI', '素养教育', '讲座体系'],
-    accent: '#6a4cc8',
-  },
-];
-
 const joinBenefits = [
   {
     title: '实战项目试炼场',
@@ -220,6 +192,21 @@ const joinLinks = [
 /* ---------- 组件 ---------- */
 
 export default function Home() {
+  // 核心项目成果卡片来自后端（后台勾选「首页展示」的产品），替代原先写死的数据
+  const [projects, setProjects] = useState<Product[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const res = await fetchProducts();
+      if (cancelled || res.kind === 'error') return;
+      setProjects(res.products.filter((p) => p.featured).slice(0, 3));
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
     <div className="home">
       {/* ============ HERO ============ */}

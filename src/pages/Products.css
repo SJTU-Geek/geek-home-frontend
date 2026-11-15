@@ -135,6 +135,43 @@
   letter-spacing: 0.16em;
 }
 
+/* ---- 加载骨架 ---- */
+.products__skeleton {
+  min-height: 380px;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.products__skeleton-line {
+  height: 14px;
+  background: linear-gradient(
+    90deg,
+    var(--color-line) 25%,
+    #343c37 50%,
+    var(--color-line) 75%
+  );
+  background-size: 200% 100%;
+  animation: productsSkeleton 1.4s ease-in-out infinite;
+}
+
+.products__skeleton-line--cover {
+  height: 180px;
+  animation: none;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.products__skeleton-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+}
+
+@keyframes productsSkeleton {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 .product-card {
   flex: 1;
   display: flex;
