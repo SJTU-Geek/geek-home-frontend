@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import {
   fetchOpenApiEndpoints,
   initialValues,
@@ -161,11 +161,6 @@ export default function OpenApi() {
         <div className="open-api__hero-grid" aria-hidden />
         <div className="container open-api__hero-inner">
           <p className="section-eyebrow">// 开放平台 · Open API</p>
-          <nav className="open-api__crumbs" aria-label="breadcrumb">
-            <Link to="/">首页</Link>
-            <span>/</span>
-            <span className="is-current">开放 API</span>
-          </nav>
           <h1 className="open-api__title">
             <span className="glitch" data-text="开放 API">
               开放 API

@@ -38,7 +38,16 @@ export interface Product {
   featured: boolean;
 }
 
-interface ProductsResp {
+/** 开放 API 统一响应结构（见后端 openapi/api_response.py） */
+interface Envelope<T> {
+  success: boolean;
+  code: number;
+  data: T;
+  error_code: string | null;
+  message: string;
+}
+
+interface ProductsData {
   count: number;
   products: Product[];
 }
@@ -55,8 +64,11 @@ export async function fetchProducts(): Promise<FetchProductsResult> {
     if (!resp.ok) {
       return { kind: 'error', message: `HTTP ${resp.status}` };
     }
-    const data = (await resp.json()) as ProductsResp;
-    return { kind: 'ok', products: data.products };
+    const envelope = (await resp.json()) as Envelope<ProductsData>;
+    if (!envelope.success || !envelope.data) {
+      return { kind: 'error', message: envelope.message || `code ${envelope.code}` };
+    }
+    return { kind: 'ok', products: envelope.data.products };
   } catch (err) {
     return { kind: 'error', message: (err as Error).message };
   }

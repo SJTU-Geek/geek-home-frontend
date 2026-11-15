@@ -83,6 +83,15 @@ export function logoutNextUrl(slug?: string): string {
   return `${logoutUrl}?next=${encodeURIComponent(authReturnUrl(slug))}`;
 }
 
+/** 开放 API 统一响应结构（见后端 openapi/api_response.py） */
+interface Envelope<T> {
+  success: boolean;
+  code: number;
+  data: T;
+  error_code: string | null;
+  message: string;
+}
+
 export async function fetchOpenApiEndpoints(): Promise<FetchEndpointsResult> {
   try {
     const resp = await fetch('/api/openapi/endpoints/', {
@@ -92,7 +101,11 @@ export async function fetchOpenApiEndpoints(): Promise<FetchEndpointsResult> {
     if (!resp.ok) {
       return { kind: 'error', message: `HTTP ${resp.status}` };
     }
-    const data = (await resp.json()) as { count: number; groups: ApiGroup[] };
+    const envelope = (await resp.json()) as Envelope<{ count: number; groups: ApiGroup[] }>;
+    if (!envelope.success || !envelope.data) {
+      return { kind: 'error', message: envelope.message || `code ${envelope.code}` };
+    }
+    const data = envelope.data;
     return { kind: 'ok', groups: data.groups || [], count: data.count };
   } catch (err) {
     return { kind: 'error', message: (err as Error).message };
