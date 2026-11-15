@@ -22,8 +22,9 @@ export default function WikiContrib() {
   const [oauthError, setOauthError] = useState<string | null>(null);
 
   useEffect(() => {
-    // 后端 OAuth 失败时 redirect 带 ?error=...，开屏先消费掉
-    setOauthError(popOAuthError());
+    // 后端 OAuth 失败时 redirect 带 ?error=...，开屏消费掉。
+    // StrictMode 下 effect 双执行：用「已有值不覆盖」避免第二次 pop 的 null 清掉状态
+    setOauthError((prev) => prev ?? popOAuthError());
 
     let cancelled = false;
     (async () => {
