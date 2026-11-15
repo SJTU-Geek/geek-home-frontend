@@ -1,4 +1,5 @@
 import { defineConfig, loadEnv } from 'vite';
+import { fileURLToPath } from 'node:url';
 import react from '@vitejs/plugin-react';
 
 // Vite 不会自动把 .env 注入到 vite.config.ts 的 process.env，
@@ -10,11 +11,18 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
+    resolve: {
+      alias: [
+        // @readme/httpsnippet 引用了 Node 内置 url 模块，浏览器端用最小 shim 替代
+        { find: /^url$/, replacement: fileURLToPath(new URL('./src/shims/url.ts', import.meta.url)) },
+      ],
+    },
     server: {
       host: '127.0.0.1',
       port: 5173,
       proxy: {
-        '/api': {
+        // 注意带尾部斜杠：/open-api 等页面路由不属于数据接口，不能被代理吞掉
+        '/api/': {
           target: backendTarget,
           changeOrigin: true,
         },
