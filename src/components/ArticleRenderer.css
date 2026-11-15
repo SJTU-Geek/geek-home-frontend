@@ -201,7 +201,9 @@
 }
 
 /* ---- 图片 ---- */
-.article-body img {
+/* 内容图（非标题内嵌）：块级居中、带边框。
+   标题里的图标单独豁免，否则这里的全局声明会覆盖掉 width/height 属性 */
+.article-body img:not(:is(h1, h2, h3, h4, h5, h6) img) {
   display: block;
   max-width: 100%;
   height: auto;
@@ -215,6 +217,16 @@
 .article-body p:has(> img:only-child),
 .article-body p:has(> a:only-child > img:only-child) {
   text-align: center;
+}
+
+/* 标题内嵌图标：行内显示、与文字垂直居中，不套内容图的边框/居中。
+   不声明 width/height，尺寸交给 HTML 属性（CSS 声明会覆盖属性） */
+.article-body :is(h1, h2, h3, h4, h5, h6) img {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.5em 0 0;
+  border: none;
+  background: none;
 }
 
 /* ---- 原文里手写的 <div style="display:flex"> 多图组 ---- */

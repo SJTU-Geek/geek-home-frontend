@@ -22,7 +22,8 @@ for (const [key, url] of Object.entries(assetModules)) {
   assetMap[short] = url;
 }
 
-const SENTINEL_RE = /__ASSET__([^"'<>\s]+?)__/g;
+// 路径可能含空格/括号等（如 `jaide (0).webp`），只排除引号和尖括号防止越界
+const SENTINEL_RE = /__ASSET__([^"'<>]+?)__/g;
 
 /** 把 HTML 中的 `__ASSET__<path>__` 替换成真实的 Vite 资产 URL */
 export function resolveAssetSentinels(html: string): string {

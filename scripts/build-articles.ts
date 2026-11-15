@@ -7,7 +7,8 @@
  *   sentinel 由 ArticleRenderer 在运行时通过 import.meta.glob 解析到真实 URL，
  *   这样图片走 Vite 资产管线（自动 hash、自动 base URL），无需手动拷贝到 public/
  * - 图片用 sharp 优化：resize 到 maxWidth 1600 + 转 webp(q82)，
- *   输出到 src/articles/_optimized/<相同相对路径>.webp（SVG 直通）。
+ *   输出到 src/articles/_optimized/ 下（保持相对目录；SVG 直通；
+ *   非 webp 源保留原扩展名，如 foo.png → foo.png.webp，避免与同名 .webp 源冲突）。
  *   按 mtime 增量缓存，重跑只处理新增/改动。
  */
 
@@ -168,9 +169,14 @@ function optimizeImage(originalRelPath: string): Promise<string> {
     const ext = extname(originalRelPath).toLowerCase();
     const isSvg = ext === '.svg';
     const baseName = basename(originalRelPath, extname(originalRelPath));
+    // 输出统一为 .webp。非 webp 源保留原扩展名（foo.png → foo.png.webp），
+    // 否则 foo.png 和 foo.webp 会映射到同一个输出路径互相覆盖
     const destRel = isSvg
       ? originalRelPath
-      : join(dirname(originalRelPath), `${baseName}.webp`).replace(/\\/g, '/');
+      : join(
+          dirname(originalRelPath),
+          ext === '.webp' ? `${baseName}.webp` : `${baseName}${ext}.webp`,
+        ).replace(/\\/g, '/');
     const destPath = join(OPTIMIZED_DIR, destRel);
 
     const srcStat = statSync(srcPath);
@@ -221,7 +227,8 @@ async function rewriteAssetUrls(
   html: string,
   articleRelDir: string,
 ): Promise<string> {
-  const re = /(\s(?:src|href))=(["'])([^"']+)\2/gi;
+  // 支持 src="..." / src='...' / src=...（无引号）三种写法
+  const re = /(\s(?:src|href))=(?:"([^"]*)"|'([^']*)'|([^\s"'>]+))/gi;
   const matches: {
     index: number;
     length: number;
@@ -235,8 +242,8 @@ async function rewriteAssetUrls(
       index: m.index,
       length: m[0].length,
       attr: m[1],
-      quote: m[2],
-      url: m[3],
+      quote: m[2] != null ? '"' : m[3] != null ? "'" : '',
+      url: m[2] ?? m[3] ?? m[4],
     });
   }
 
@@ -276,9 +283,11 @@ async function rewriteAssetUrls(
     const opt = resolved[i];
     if (!opt) continue;
     const { index, length, attr, quote } = matches[i];
+    // 原属性值无引号时补双引号，因为 sentinel 路径可能含空格
+    const q = quote || '"';
     result =
       result.slice(0, index) +
-      `${attr}=${quote}${buildSentinel(opt)}${quote}` +
+      `${attr}=${q}${buildSentinel(opt)}${q}` +
       result.slice(index + length);
   }
   return result;
